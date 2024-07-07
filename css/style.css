@@ -1,0 +1,462 @@
+* {
+    font-family: Snell Roundhand, cursive;
+}
+
+.box {
+    position: relative;
+}
+
+section.banner {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 20vh 0;
+    color: #190a12;
+    background: url('../imagens/bg5.jpg') no-repeat scroll 30% 45%;
+    background-size: cover;
+}
+
+section.banner > .container {
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 100px 200px black;
+    border: 1px solid #212529;
+}
+
+.overlay {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: rgba(52, 52, 64, .1);
+}
+
+div.introducao {
+    background: rgba(242, 164, 68, .2);
+    width: 100%;
+    border-radius: 1vh;
+}
+
+.chamada-banner h1 {
+    color: #190a12;
+    font-size: 5vh;
+}
+
+h1.pt-4 {
+    font-weight: 1000;
+    color: #072620;
+}
+
+h3.pt-4 {
+    font-weight: 1000;
+    color: #072620;
+}
+
+h1.pt-4:hover, p.apresentacao:hover, h2.pt-4:hover, h3.pt-4:hover, h3.text-center:hover {
+    letter-spacing: 5px;
+    transition: letter-spacing 1s;
+}
+
+p.apresentacao {
+    font-weight: 1000;
+    color: #637343;
+}
+
+.chamada-banner p {
+    color: #0B3B59;
+    font-size: 2.5vh;
+    padding: 2vh 0;
+}
+
+.chamada-banner a {
+    font-size: 2.0vh;
+    display: inline-block;
+    color: white;
+    border-radius: 1vh;
+}
+
+.chamada-banner .entrar {
+    padding: 0.8vh 15vh;
+    background: #013A40;
+}
+
+.chamada-banner .entrar:hover {
+    font-size: x-large;
+    transform: scale(1.05);
+    background: #013A40;
+    box-shadow: 0 0 5px #0B3B59;
+}
+
+.chamada-banner .cadastrar {
+    padding: 0.8vh 13.0vh;
+    background: #0B3B59;
+}
+
+.chamada-banner .cadastrar:hover {
+    font-size: x-large;
+    transform: scale(1.05);
+    background: #0B3B59;
+    box-shadow: 0 0 5px #013A40;
+}
+
+table,form {
+    width: 100%; !important;
+}
+
+table ol, ul, li {
+    width: 100%; !important;
+}
+
+label {
+    font-size: larger;
+    font-weight: 800;
+}
+
+.input-group-text, input[type=date] {
+    font-size: large;
+    font-weight: 600;
+    color: #072620;
+    background-color: white;
+}
+
+.navbar {
+    background-color: #212529;
+    border: none;
+    box-shadow: 0 5px 35px black;
+}
+
+a.navbar-brand {
+    color: #CAD9C7;
+    font-weight: 1000;
+    font-size: x-large;
+}
+
+a.navbar-brand:hover {
+    color: #CAD9C7;
+    font-weight: 1000;
+    letter-spacing: 5px;
+    transition: letter-spacing 1s;
+}
+
+.navbar-toggler, .navbar-toggler-icon {
+    background-color: #CAD9C7;
+}
+
+.offcanvas-body {
+    text-align: center;
+    background-color: #343440;
+}
+
+.offcanvas-header {
+    background-color: #013A40;
+}
+
+a.nav-link {
+    font-weight: 700;
+    font-size: large;
+}
+
+.text-danger {
+    color: #8C3623;
+}
+
+
+option, select, .form-select {
+    font-weight: 700;
+    font-size: large;
+}
+
+.botao-primario {
+    background-color: #592202;
+    border: none;
+    max-width: 300px;
+    width: 50%;
+    height: 4.3vh;
+    font-weight: 1000;
+    color: white;
+    border-radius: 1vh;
+    font-size: 2vh;
+}
+
+.botao-primario:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #D95204;
+}
+
+.botao-primario-filtro {
+    background-color: #5E7B8C;
+    border: none;
+    font-weight: 1000;
+    color: white;
+    padding: 0.8vh 2.0vh;
+    border-radius: 1vh;
+    font-size: 2vh;
+}
+
+.botao-primario-filtro:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #CCD3D9;
+}
+
+.texto-alerta {
+    color: #8C3623;
+    font-size: 2.5vh;
+    text-decoration: underline;
+}
+
+.selecao-mes, .selecao-ano, .selecao-mes:focus, .selecao-ano:focus, .selecao-mes option {
+    background-color: #D95204;
+    border: none;
+}
+
+.selecao-mes:hover, .selecao-ano:hover, .selecao-mes option:hover {
+    box-shadow: 0 0 20px #F2A444;
+    transform: scale(1.05);
+}
+
+.selecao-mes {
+    margin-left: -51%;
+}
+
+.selecao-ano {
+    margin-left: -4%;
+}
+
+.botao-selecao-data {
+    margin-left: -11%;
+    border: none;
+}
+
+.form-selecao-data {
+    padding-top: 0.3%;
+}
+
+h2.pt-4 {
+    font-weight: 1000;
+}
+
+.table-striped {
+    background-color: #5F736F;
+    font-size: large;
+    font-weight: 1000;
+}
+
+#chart_wrap, #chart_wrap1, #chart_wrap2 {
+    position: relative;
+    padding-bottom: 36%;
+    height: 0;
+    width: 100%;
+}
+
+#columnchart_values, #columnchart_values1, #curve_chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+}
+
+td, th {
+    font-size: large;
+}
+
+@media only screen and (max-width: 1100px) {
+    #chart_wrap, #chart_wrap1, #chart_wrap2 {
+        padding-bottom: 55%;
+    }
+    section.banner {
+        height: 350vh;
+    }
+
+}
+
+@media only screen and (max-width: 915px) {
+    #chart_wrap, #chart_wrap1, #chart_wrap2 {
+        padding-bottom: 75%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #chart_wrap, #chart_wrap1, #chart_wrap2 {
+        padding-bottom: 135%;
+    }
+
+    * {
+        word-break: break-word;
+    }
+
+    .row {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    section.banner {
+        max-height: 420vh;
+    }
+
+    div.introducao {
+        padding: 2px;
+    }
+
+    td, th {
+        font-size: medium;
+    }
+
+    .table-striped {
+        font-size: medium;
+    }
+
+    .chamada-banner h1 {
+        font-size: 3vh;
+    }
+
+    .chamada-banner p {
+        font-size: 2.2vh;
+    }
+
+    label {
+        font-size: medium;
+        font-weight: 800;
+    }
+
+    .input-group-text, input[type=date] {
+        font-size: medium;
+    }
+
+    a.navbar-brand {
+        font-size: larger;
+    }
+
+    a.nav-link {
+        font-size: medium;
+    }
+
+    option, select, .form-select {
+        font-size: large;
+    }
+
+    .botao-primario {
+        width: 90%;
+        font-size: 2.5vh;
+    }
+
+    .texto-alerta {
+        font-size: 2.0vh;
+    }
+
+    .table-striped {
+        font-size: medium;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #chart_wrap, #chart_wrap1, #chart_wrap2 {
+        padding-bottom: 135%;
+    }
+
+    * {
+        word-break: break-word;
+    }
+
+    section.banner {
+        height: 220vh;
+        min-height: 570vh;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #chart_wrap, #chart_wrap1, #chart_wrap2 {
+        padding-bottom: 135%;
+    }
+
+    * {
+        word-break: break-word;
+    }
+
+    section.banner {
+        min-height: 570vh;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    #chart_wrap, #chart_wrap1, #chart_wrap2 {
+        padding-bottom: 145%;
+    }
+
+    * {
+        word-break: break-word;
+    }
+
+}
+
+main.formulario-usuario {
+    max-width: 670px;
+}
+
+div[dir='ltr'] svg {
+    border-radius: 5px;
+}
+
+rect[fill='#ffffff'] {
+    fill: #212529;
+}
+
+rect[stroke-width='1'] {
+    border-radius: 10px;
+}
+
+rect[fill='#cccccc'], rect[fill='#ebebeb'] {
+    fill: rgba(255, 255, 255, 0.22);
+}
+
+g text {
+    fill: white;
+}
+
+g.google-visualization-tooltip text {
+    fill: #190a12;
+    color: black;
+}
+
+footer a{
+    color: #D95204;
+}
+
+table.tabela-dividas {
+    border: #D95204 2px solid;
+    color: black;
+    box-shadow: 0 5px 35px #BFBFBF;
+}
+
+table.tabela-dividas caption {
+    color: #D95204;
+    font-weight: 1000;
+    font-size: 20px;
+}
+
+table.tabela-quitar-dividas {
+    border: #0B3B59 2px solid;
+    color: black;
+    box-shadow: 0 5px 35px #BFBFBF;
+}
+
+table.tabela-quitar-dividas caption {
+    color: #0B3B59;
+    font-weight: 1000;
+    font-size: 20px;
+}
+
+table.tabela-investimentos {
+    border: #013A40 2px solid;
+    color: black;
+    box-shadow: 0 5px 35px #BFBFBF;
+}
+
+table.tabela-investimentos caption {
+    color: #013A40;
+    font-weight: 1000;
+    font-size: 20px;
+}
