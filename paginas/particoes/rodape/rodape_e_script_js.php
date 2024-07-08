@@ -28,7 +28,7 @@
         </ul>
     </div>
     <div class="text-center" style="background-color: #333; padding: 10px;">
-        <a href="https://www.eddumoreira.com" style="text-decoration: none">By Eduardo Moreira<a>
+        <a href="https://www.eddumoreira.com" target="_blank" style="text-decoration: none">By Eduardo Moreira<a>
     </div>
 </footer>
 <script>
