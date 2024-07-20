@@ -53,6 +53,60 @@ class EditarGastos extends NovoCredito
 			)
 				return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], 'limiteInsuficiente');
 
+		}
+
+		if ($this -> getTipoAlteracao() == 'todos') {
+
+			$idInterno = $this -> ObterDadosGastos($this -> getSessao(), $this -> getId(), null)[0]['id_interno_gasto'];
+			$gastos = $this -> ObterDadosGastos($this -> getSessao(), $idInterno, null, 'interno');
+			$quantidade = 0;
+
+			foreach ($gastos as $ignored) {
+				$id[] = $gastos[$quantidade]['id_gasto'];
+				$quantidade++;
+			}
+
+			$mes = $this -> InformacoesData('m', $this -> getDataCompraPagamento());
+			$ano = $this -> InformacoesData('y', $this -> getDataCompraPagamento());
+			$dataPagamento = $this -> getDataCompraPagamento();
+
+			for ($i = 0; $i <= $quantidade; $i++) {
+
+				$dia = $this -> InformacoesData('d', $this -> getDataCompraPagamento());
+
+				if (
+					!$this -> AlterarDadosGastos(
+						$id[$i],
+						$this -> getBancoCorretoraId(),
+						$this -> getNome(),
+						$this -> getFormaPagamento(),
+						$this -> getClassificacao(),
+						$this -> getValor(),
+						$dataPagamento,
+						$this -> getParcelas()
+					)
+				)
+					return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], null);
+
+				$mes = intval($mes) + 1;
+				$mes = $mes < 10 ? "0" . $mes : $mes;
+
+				if ($dia > 28) {
+					$ultimoDia = $this -> ultimoDiaMes($mes, $ano);
+					while ($ultimoDia < $dia) {
+						$dia--;
+					}
+				}
+
+				if ($mes > 12) {
+					$mes = 1;
+					$ano = intval($ano) + 1;
+				}
+
+				$dataPagamento = $ano . "-" . $mes . "-" . $dia;
+			}
+		}
+		elseif ($this -> getTipoAlteracao() == 'este') {
 			if (
 				!$this -> AlterarDadosGastos(
 					$this -> getId(),
@@ -66,28 +120,29 @@ class EditarGastos extends NovoCredito
 				)
 			)
 				return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], null);
+		}
 
-		} else {
+		elseif ($this -> getTipoAlteracao() == 'estefuturos') {
 
-			if ($this-> getTipoAlteracao() == 'todos') {
+			$idInterno = $this -> ObterDadosGastos($this -> getSessao(), $this -> getId(), null)[0]['id_interno_gasto'];
+			$gastos = $this -> ObterDadosGastos($this -> getSessao(), $idInterno, null, 'interno');
+			$quantidade = 0;
 
-				$idInterno = $this-> ObterDadosGastos($this -> getSessao(), $this -> getId(), null)[0]['id_interno_gasto'];
-				$gastos = $this-> ObterDadosGastos($this -> getSessao(), $idInterno, null, 'interno');
-				$quantidade = 0;
+			foreach ($gastos as $ignored) {
+				$id[] = $gastos[$quantidade]['id_gasto'];
+				$datas[] = $gastos[$quantidade]['dataCompraPagamento'];
+				$quantidade++;
+			}
 
-				foreach ($gastos as $ignored) {
-					$id[] = $gastos[$quantidade]['id_gasto'];
-					$quantidade++;
-				}
+			$mes = $this -> InformacoesData('m', $this -> getDataCompraPagamento());
+			$ano = $this -> InformacoesData('y', $this -> getDataCompraPagamento());
+			$dataPagamento = $this -> getDataCompraPagamento();
 
-				$mes = $this -> InformacoesData('m', $this -> getDataCompraPagamento());
-				$ano = $this -> InformacoesData('y', $this -> getDataCompraPagamento());
-				$dataPagamento = $this -> getDataCompraPagamento();
+			for ($i = 0; $i < $quantidade; $i++) {
 
-				for ($i = 0; $i <= $quantidade; $i++) {
+				$dia = $this -> InformacoesData('d', $this -> getDataCompraPagamento());
 
-					$dia = $this -> InformacoesData('d', $this -> getDataCompraPagamento());
-
+				if ($datas[$i] >= $this -> getDataCompraPagamento()) {
 					if (
 						!$this -> AlterarDadosGastos(
 							$id[$i],
@@ -106,7 +161,7 @@ class EditarGastos extends NovoCredito
 					$mes = $mes < 10 ? "0" . $mes : $mes;
 
 					if ($dia > 28) {
-						$ultimoDia = $this->ultimoDiaMes($mes, $ano);
+						$ultimoDia = $this -> ultimoDiaMes($mes, $ano);
 						while ($ultimoDia < $dia) {
 							$dia--;
 						}
@@ -119,77 +174,7 @@ class EditarGastos extends NovoCredito
 
 					$dataPagamento = $ano . "-" . $mes . "-" . $dia;
 				}
-			} elseif ($this-> getTipoAlteracao() == 'este') {
-				if (
-					!$this -> AlterarDadosGastos(
-						$this -> getId(),
-						$this -> getBancoCorretoraId(),
-						$this -> getNome(),
-						$this -> getFormaPagamento(),
-						$this -> getClassificacao(),
-						$this -> getValor(),
-						$this -> getDataCompraPagamento(),
-						$this -> getParcelas()
-					)
-				)
-					return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], null);
 			}
-
-			elseif ($this-> getTipoAlteracao() == 'estefuturos') {
-
-				$idInterno = $this-> ObterDadosGastos($this -> getSessao(), $this -> getId(), null)[0]['id_interno_gasto'];
-				$gastos = $this-> ObterDadosGastos($this -> getSessao(), $idInterno, null, 'interno');
-				$quantidade = 0;
-
-				foreach ($gastos as $ignored) {
-					$id[] = $gastos[$quantidade]['id_gasto'];
-					$datas[] = $gastos[$quantidade]['dataCompraPagamento'];
-					$quantidade++;
-				}
-
-				$mes = $this -> InformacoesData('m', $this -> getDataCompraPagamento());
-				$ano = $this -> InformacoesData('y', $this -> getDataCompraPagamento());
-				$dataPagamento = $this -> getDataCompraPagamento();
-
-				for ($i = 0; $i < $quantidade; $i++) {
-
-					$dia = $this -> InformacoesData('d', $this -> getDataCompraPagamento());
-
-					if ($datas[$i] >= $this -> getDataCompraPagamento()) {
-						if (
-							!$this -> AlterarDadosGastos(
-								$id[$i],
-								$this -> getBancoCorretoraId(),
-								$this -> getNome(),
-								$this -> getFormaPagamento(),
-								$this -> getClassificacao(),
-								$this -> getValor(),
-								$dataPagamento,
-								$this -> getParcelas()
-							)
-						)
-							return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], null);
-
-						$mes = intval($mes) + 1;
-						$mes = $mes < 10 ? "0" . $mes : $mes;
-
-						if ($dia > 28) {
-							$ultimoDia = $this->ultimoDiaMes($mes, $ano);
-							while ($ultimoDia < $dia) {
-								$dia--;
-							}
-						}
-
-						if ($mes > 12) {
-							$mes = 1;
-							$ano = intval($ano) + 1;
-						}
-
-						$dataPagamento = $ano . "-" . $mes . "-" . $dia;
-					}
-				}
-			}
-
 		}
 
 		return !$this -> RetornarErro($_SESSION['pagina_pai'], null);
