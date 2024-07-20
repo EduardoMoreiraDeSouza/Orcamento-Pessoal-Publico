@@ -135,7 +135,7 @@ class EditarGastos extends NovoCredito
 					return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], null);
 			}
 
-			elseif ($this-> getTipoAlteracao() == 'esteFuturos') {
+			elseif ($this-> getTipoAlteracao() == 'estefuturos') {
 
 				$idInterno = $this-> ObterDadosGastos($this -> getSessao(), $this -> getId(), null)[0]['id_interno_gasto'];
 				$gastos = $this-> ObterDadosGastos($this -> getSessao(), $idInterno, null, 'interno');

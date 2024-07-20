@@ -123,7 +123,7 @@ abstract class Formulario extends ValorFinal
 
 	protected function tipoParcelas()
 	{
-		$this->setDados($this-> antiInjecaoMySql(addslashes($_POST['tipoParcelas'])));
+		$this->setDados($this-> fraseMinuscula($this-> antiInjecaoMySql(addslashes($_POST['tipoParcelas']))));
 
 		if ($this->dadosDefinidos())
 			return $this->getDados();
@@ -133,7 +133,7 @@ abstract class Formulario extends ValorFinal
 
 	protected function tipoAlteracao()
 	{
-		$this->setDados($this-> antiInjecaoMySql(addslashes($_POST['tipoAlteracao'])));
+		$this->setDados($this-> fraseMinuscula($this-> antiInjecaoMySql(addslashes($_POST['tipoAlteracao']))));
 
 		if ($this->dadosDefinidos())
 			return $this->getDados();

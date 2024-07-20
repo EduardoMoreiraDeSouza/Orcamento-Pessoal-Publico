@@ -396,6 +396,10 @@ main.formulario-usuario {
     max-width: 670px;
 }
 
+text[stroke='#ffffff'] {
+    stroke: none;
+}
+
 div[dir='ltr'] svg {
     border-radius: 5px;
 }

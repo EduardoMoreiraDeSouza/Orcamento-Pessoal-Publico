@@ -106,7 +106,7 @@ class EditarReceita extends EditarGastos
 				return (bool) $this -> RetornarErro($_SESSION['pagina_pai'], null);
 		}
 
-		elseif ($this -> getTipoAlteracao() == 'esteFuturos') {
+		elseif ($this -> getTipoAlteracao() == 'estefuturos') {
 
 			$idInterno = $this -> ObterDadosReceita($this -> getSessao(), $this -> getId())[0]['id_interno_receita'];
 			$receitas = $this -> ObterDadosReceita($this -> getSessao(), $idInterno, 'interno');
