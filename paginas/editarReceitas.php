@@ -156,10 +156,10 @@ if ($login -> VerificarLogin()) {
 						<br/>
 						<form class="form-inline w-75 container" action="../backEnd/InteracaoFront/excluirAvancado.php" method="post">
 
-							<div class="row">
-								<label class="text-danger">Excluir:</label>
+							<div class="row border-top border-danger">
+								<label class="text-danger mt-3">Excluir:</label>
 								<div class="col-sm form-check mt-2 border-bottom border-dark rounded-2">
-									<label class="form-check-label text-danger" for="flexRadioDefault4">
+									<label class="form-check-label text-dark" for="flexRadioDefault4">
 										Todos (Referentes a esta)
 									</label>
 									<input class="form-check-input" type="radio" name="excluir"
@@ -167,7 +167,7 @@ if ($login -> VerificarLogin()) {
 									<br/>
 								</div>
 								<div class="col-sm form-check mt-2 border-bottom border-dark rounded-2">
-									<label class="form-check-label text-danger" for="flexRadioDefault5">
+									<label class="form-check-label text-dark" for="flexRadioDefault5">
 										Somente Esta:
 									</label>
 									<input class="form-check-input " type="radio" name="excluir"
@@ -175,7 +175,7 @@ if ($login -> VerificarLogin()) {
 
 								</div>
 								<div class="col-sm form-check mt-2 border-bottom border-dark rounded-2">
-									<label class="form-check-label text-danger" for="flexRadioDefault6">
+									<label class="form-check-label text-dark" for="flexRadioDefault6">
 										Esta e Futuras
 									</label>
 									<input class="form-check-input" type="radio" name="excluir"

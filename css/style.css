@@ -35,7 +35,7 @@ section.banner > .container {
 }
 
 div.introducao {
-    background: rgba(242, 164, 68, .2);
+    background: rgba(242, 164, 68, .7);
     width: 100%;
     border-radius: 1vh;
 }
