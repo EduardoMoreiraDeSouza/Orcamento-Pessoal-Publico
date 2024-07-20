@@ -71,11 +71,29 @@ if ($login -> VerificarLogin()) {
 								<?php include(__DIR__ . '/./particoes/classificacao/tipos_gastos.php') ?>
 							</div>
 
-							<div class="form-group mt-2">
-								<label>Parcelas:</label>
-								<input type="number" class="form-control input-group-text" name="parcelas" required
-								       placeholder="Parcelas:" step="1">
+							<div class="row">
+								<div class="form-group mt-2">
+									<label>Parcelar ou Repetir o Débito</label>
+									<input type="number" class="form-control input-group-text" name="parcelas" required
+									       placeholder="Quantidade:" step="1">
+								</div>
+								<div class="col-sm form-check mt-2 border border-dark rounded-2">
+									<label class="form-check-label" for="flexRadioDefault1">
+										Parcelar:
+									</label>
+									<input class="form-check-input" type="radio" name="tipoParcelas"
+									       id="flexRadioDefault1" value="parcelar" checked>
+
+								</div>
+								<div class="col-sm form-check mt-2 border border-dark rounded-2">
+									<label class="form-check-label" for="flexRadioDefault2">
+										Replicar Débito: (Meses)
+									</label>
+									<input class="form-check-input" type="radio" name="tipoParcelas"
+									       id="flexRadioDefault2" value="replicar">
+								</div>
 							</div>
+
 							<div class="form-group mt-2">
 								<label>Data da Compra:</label>
 								<input type="date" class="form-control text-center"
