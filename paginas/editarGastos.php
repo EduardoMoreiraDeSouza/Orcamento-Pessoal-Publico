@@ -79,7 +79,7 @@ if ($login -> VerificarLogin()) {
 							</div>
 
 							<div class="form-group mt-2">
-								<label for="">Valor:</label>
+								<label for="">Valor das Parcelas:</label>
 								<input type="text" class="form-control input-group-text" name="valor"
 								       placeholder="Valor:"
 								       value="R$ <?= $formatacao -> formatarValor($dados['valor']) ?>" required>
